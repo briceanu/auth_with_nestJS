@@ -1,0 +1,74 @@
+@use './styles.module.scss' as *;
+//fonts-families
+$font-cat: map-get($fonts, font-cat);
+$font-cinzet: map-get($fonts, font-cinzel);
+//fonnt colors
+$color-seconday: map-get($colors, secondary);
+$color-success: map-get($colors, success);
+$color-primary: map-get($colors, primary);
+$color-danger: map-get($colors, danger);
+$color-info: map-get($colors, info);
+$color-warning: map-get($colors, warning);
+
+//font-sizes
+$font-sl: map-get($font-sizes, font-small);
+$font-m: map-get($font-sizes, font-medium);
+$font-b: map-get($font-sizes, font-big);
+
+.signIn_container {
+  // @include container(lighten($color-seconday, 35));
+  @include box-shadow(0px, 0px, 10px, 0, $color-info);
+  form {
+    @include form_style();
+    input {
+      font-size: clamp(1rem, 1.2rem + 6%, 2rem);
+      border-radius: 5px;
+      width: 60%;
+      border-radius: 5px;
+      padding: 0.5rem;
+      outline: none;
+      border: none;
+      font-family: 'Chilanka', cursive;
+      @include input-styles($color-seconday, lighten($color-warning, 20), 700);
+    }
+
+    button {
+      @include button(
+        lighten($color-seconday, 20),
+        lighten(rgb(33, 104, 161), 0)
+      );
+      width: 30%;
+    }
+  }
+
+  form > ::placeholder {
+    font-family: 'Chilanka', cursive;
+    font-size: clamp(1rem, 1.2rem + 6%, 2rem);
+  }
+}
+
+.signIn_container {
+  h3 {
+    @include header($font-cat, $font-m, 0.2rem, lighten($color-success, 10));
+    margin: 0.4rem 0;
+  }
+}
+input.input_error {
+  border-color: #fc8181;
+}
+.error {
+  margin: -0.4rem 0;
+  color: firebrick;
+  font-family: $font-cat;
+  text-align: center;
+}
+.signIn_container {
+  width: 100dvw;
+  height: 90dvh;
+  background-color: rgba(255, 160, 122, 0.726);
+}
+.login_container {
+  width: 100dvw;
+  height: 90dvh;
+  background-color: rgba(49, 201, 180, 0.726);
+}

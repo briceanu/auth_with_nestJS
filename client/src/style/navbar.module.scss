@@ -1,0 +1,30 @@
+@use './styles.module.scss' as *;
+nav {
+  width: 100dvw;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: rgba(0, 255, 0, 0.233);
+  padding: 1rem 0;
+
+  a {
+    text-decoration: none;
+    font-weight: 900;
+    font-family: $font-cat;
+    padding-inline-start: 0.5rem;
+  }
+  & > div {
+    display: flex;
+    gap: 1rem;
+    margin-right: 2rem;
+  }
+  button {
+    @include button(lighten($color-seconday, 50), $color-info);
+    text-transform: uppercase;
+    &:active {
+      outline: none;
+    }
+  }
+}

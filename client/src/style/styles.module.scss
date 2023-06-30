@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Catamaran:wght@600&family=Chilanka&family=Cinzel+Decorative:wght@700&family=Racing+Sans+One&family=Righteous&display=swap');
+
+$colors: (
+  primary: #007bff,
+  secondary: #6c757d,
+  success: #28a745,
+  danger: #dc3545,
+  warning: #ffc107,
+  info: #17a2b8,
+);
+
+//
+$fonts: (
+  font-cinzel: 'Cinzel Decorative',
+  font-cat: 'Catamaran',
+);
+$font-sizes: (
+  font-small: clamp(2rem, 1% + 2vw, 2rem),
+  font-medium: clamp(2rem, 3% + 2vw, 2rem),
+  font-big: clamp(2rem, 5% + 2vw, 2rem),
+);
+
+//fonts-families
+$font-cinzet: map-get($fonts, font-cinzel);
+$font-cat: map-get($fonts, font-cat);
+
+//font-sizes
+$font-sl: map-get($font-sizes, font-small);
+$font-m: map-get($font-sizes, font-medium);
+$font-b: map-get($font-sizes, font-big);
+
+//font-colors
+$color-seconday: map-get($colors, secondary);
+$color-success: map-get($colors, success);
+$color-primary: map-get($colors, primary);
+$color-danger: map-get($colors, danger);
+$color-info: map-get($colors, info);
+$color-warning: map-get($colors, warning);
+
+//buttons
+@mixin button($backgroundColor, $textColor) {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: $backgroundColor;
+  color: $textColor;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: darken($backgroundColor, 10%);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #333;
+  }
+
+  &:active {
+    background-color: darken($backgroundColor, 20%);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+//form mixin
+
+@mixin form_style() {
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 0.5em;
+}
+
+//container for the form
+
+@mixin container($backgound) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30dvw;
+  background-color: $backgound;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+//input mixin
+@mixin input-styles($color, $background, $font-weight) {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  color: $color;
+  background-color: $background;
+  font-weight: $font-weight;
+
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+}
+//box-shadow
+
+@mixin box-shadow($offsetX, $offsetY, $blurRadius, $spreadRadius, $color) {
+  box-shadow: $offsetX $offsetY $blurRadius $spreadRadius $color;
+}
+
+//
+@mixin header($family, $size, $letter-space, $color) {
+  font-family: $family;
+  font-size: $size;
+  letter-spacing: $letter-space;
+  color: $color;
+}
